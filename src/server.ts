@@ -10,15 +10,15 @@ const startServer = async (): Promise<void> => {
         console.error("Database connection failed:", (error as Error).message);
         process.exit(1);
     }
+
+    app.listen(env.PORT, (error) => {
+        if (error) {
+            console.error("Server failed to start:", error.message);
+            process.exit(1);
+        }
+
+        console.log(`Server running on port ${env.PORT}`);
+    });
 };
-
-app.listen(env.PORT, (error) => {
-    if (error) {
-        console.error("Server failed to start:", error.message);
-        process.exit(1);
-    }
-
-    console.log(`Server running on port ${env.PORT}`);
-});
 
 void startServer();
