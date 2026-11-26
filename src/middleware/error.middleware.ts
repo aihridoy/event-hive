@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { AppError, ErrorDetail } from "../utils/AppError";
 import { DatabaseError } from "pg";
-import { success } from "zod";
 
 export const errorHandler = (error: any, _req: Request, res: Response, next: NextFunction): void => {
     if (res.headersSent) {
