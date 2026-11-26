@@ -7,7 +7,7 @@ interface TResponse<T> {
     data: T
 }
 
-export const sendResponse = async<T>(res: Response, data: TResponse<T>) => {
+export const sendResponse = <T>(res: Response, data: TResponse<T>): void => {
     res.status(data.statusCode).json({
         success: data.success,
         message: data.message,
