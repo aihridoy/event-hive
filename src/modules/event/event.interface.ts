@@ -22,3 +22,14 @@ export interface EventOrganizer {
 export interface IEventWithOrganizer extends IEvent {
     organizer: EventOrganizer;
 }
+
+export interface EventUpdateData {
+    title: string;
+    description: string;
+    category: string;
+    date: Date | string;
+    location: string;
+    total_seats: number;
+    available_seats: number;
+    price: number | string;
+}
