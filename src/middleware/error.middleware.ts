@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { AppError, ErrorDetail } from "../utils/AppError";
 import { DatabaseError } from "pg";
 
-export const errorHandler = (error: any, _req: Request, res: Response, next: NextFunction): void => {
+export const errorHandler = (error: unknown, _req: Request, res: Response, next: NextFunction): void => {
     if (res.headersSent) {
         next(error);
         return;
@@ -32,7 +32,7 @@ export const errorHandler = (error: any, _req: Request, res: Response, next: Nex
     res.status(statusCode).json({
         success: false,
         message: message,
-        ...(errors && { errors })
+        ...errors && { errors }
     })
 };
 
