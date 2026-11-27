@@ -16,3 +16,8 @@ export interface TokenPayload {
     id: number,
     role: Role
 };
+
+export interface LoginResult {
+    token: string;
+    user: Pick<User, "id" | "name" | "email" | "role">;
+}

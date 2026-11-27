@@ -21,6 +21,6 @@ const create = async (user: SignupInput): Promise<PublicUser> => {
     return result.rows[0] as PublicUser;
 };
 
-export const AutRepository = {
+export const AuthRepository = {
     findByEmail, create
 };
